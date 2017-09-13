@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770
+class ComposerStaticInit6738cd41237a8429a41b5011f9e851c5
 {
     public static $files = array (
         '5abda994d126976858eb25d2546ee3c9' => __DIR__ . '/../..' . '/lib/_autoload_modules.php',
@@ -303,6 +303,7 @@ class ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770
         'SAML2_XML_saml_SubjectConfirmationData' => __DIR__ . '/..' . '/simplesamlphp/saml2/src/SAML2/XML/saml/SubjectConfirmationData.php',
         'SAML2_XML_samlp_Extensions' => __DIR__ . '/..' . '/simplesamlphp/saml2/src/SAML2/XML/samlp/Extensions.php',
         'SAML2_XML_shibmd_Scope' => __DIR__ . '/..' . '/simplesamlphp/saml2/src/SAML2/XML/shibmd/Scope.php',
+        'SimpleSAML\\Auth\\TimeLimitedToken' => __DIR__ . '/../..' . '/lib/SimpleSAML/Auth/TimeLimitedToken.php',
         'SimpleSAML\\Database' => __DIR__ . '/../..' . '/lib/SimpleSAML/Database.php',
         'SimpleSAML\\Error\\CannotSetCookie' => __DIR__ . '/../..' . '/lib/SimpleSAML/Error/CannotSetCookie.php',
         'SimpleSAML\\Utils\\Arrays' => __DIR__ . '/../..' . '/lib/SimpleSAML/Utils/Arrays.php',
@@ -325,7 +326,6 @@ class ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770
         'SimpleSAML_Auth_Simple' => __DIR__ . '/../..' . '/lib/SimpleSAML/Auth/Simple.php',
         'SimpleSAML_Auth_Source' => __DIR__ . '/../..' . '/lib/SimpleSAML/Auth/Source.php',
         'SimpleSAML_Auth_State' => __DIR__ . '/../..' . '/lib/SimpleSAML/Auth/State.php',
-        'SimpleSAML_Auth_TimeLimitedToken' => __DIR__ . '/../..' . '/lib/SimpleSAML/Auth/TimeLimitedToken.php',
         'SimpleSAML_Bindings_Shib13_Artifact' => __DIR__ . '/../..' . '/lib/SimpleSAML/Bindings/Shib13/Artifact.php',
         'SimpleSAML_Bindings_Shib13_HTTPPost' => __DIR__ . '/../..' . '/lib/SimpleSAML/Bindings/Shib13/HTTPPost.php',
         'SimpleSAML_Configuration' => __DIR__ . '/../..' . '/lib/SimpleSAML/Configuration.php',
@@ -397,10 +397,10 @@ class ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInited39ee9b6c705d9aa0464b8306e8d770::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6738cd41237a8429a41b5011f9e851c5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6738cd41237a8429a41b5011f9e851c5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6738cd41237a8429a41b5011f9e851c5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6738cd41237a8429a41b5011f9e851c5::$classMap;
 
         }, null, ClassLoader::class);
     }

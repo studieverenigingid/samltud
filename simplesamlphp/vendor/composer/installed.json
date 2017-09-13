@@ -223,23 +223,23 @@
     },
     {
         "name": "simplesamlphp/simplesamlphp-module-infocard",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/simplesamlphp/simplesamlphp-module-infocard.git",
-            "reference": "63b84cc837ea62bf87f4bf4af29b4420f49311a9"
+            "reference": "3a5b99f7f25e971c9b9b25b16503be9a1007b42a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplesamlphp/simplesamlphp-module-infocard/zipball/63b84cc837ea62bf87f4bf4af29b4420f49311a9",
-            "reference": "63b84cc837ea62bf87f4bf4af29b4420f49311a9",
+            "url": "https://api.github.com/repos/simplesamlphp/simplesamlphp-module-infocard/zipball/3a5b99f7f25e971c9b9b25b16503be9a1007b42a",
+            "reference": "3a5b99f7f25e971c9b9b25b16503be9a1007b42a",
             "shasum": ""
         },
         "require": {
             "simplesamlphp/composer-module-installer": "~1.0"
         },
-        "time": "2016-12-12T15:24:05+00:00",
+        "time": "2017-06-27T08:41:08+00:00",
         "type": "simplesamlphp-module",
         "extra": {
             "ssp-mixedcase-module-name": "InfoCard"
@@ -560,7 +560,7 @@
             "ext-gmp": "*",
             "php": ">=5.6"
         },
-        "time": "2017-04-14T17:15:43+00:00",
+        "time": "2017-09-01T13:03:26+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -707,7 +707,7 @@
         "notification-url": "https://packagist.org/downloads/",
         "authors": [
             {
-                "name": "Jaime Perez Crespo",
+                "name": "Jaime Pérez Crespo",
                 "email": "jaime.perez@uninett.no"
             }
         ],

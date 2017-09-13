@@ -35,7 +35,7 @@
         "ext-hash": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "simplesamlphp/simplesamlphp-module-infocard": "1.0.1",
+        "simplesamlphp/simplesamlphp-module-infocard": "1.0.2",
         "simplesamlphp/simplesamlphp-module-aggregator": "^1.0",
         "simplesamlphp/simplesamlphp-module-aggregator2": "^1.0",
         "simplesamlphp/simplesamlphp-module-autotest": "^1.0",
