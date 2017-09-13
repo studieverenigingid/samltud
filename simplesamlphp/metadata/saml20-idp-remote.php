@@ -1,24 +1,37 @@
 <?php
 /**
- * SAML 2.0 remote IdP metadata for SimpleSAMLphp.
- *
- * Remember to remove the IdPs you don't use from this file.
- *
- * See: https://simplesamlphp.org/docs/stable/simplesamlphp-reference-idp-remote 
+ * Metadata that is parse and used by the simplesaml
+ * SimpleSAML_Metadata parser object. This is
+ * required for simple saml to obtain the proper
+ * sp configurations.
  */
+
+$ini = null;
+$wp_opt = get_option('saml_authentication_options');
+$blog_id = (string)get_current_blog_id();
 
 /*
- * Guest IdP. allows users to sign up and register. Great for testing!
+ * Check database for idp detail configuration,
+ * if not found, use flat file configuration.
+ * If idp details are missing, the plugin should halt with parser error.
  */
-$metadata['https://openidp.feide.no'] = array(
-	'name' => array(
-		'en' => 'Feide OpenIdP - guest users',
-		'no' => 'Feide Gjestebrukere',
-	),
-	'description'          => 'Here you can login with your account on Feide RnD OpenID. If you do not already have an account on this identity provider, you can create a new one by following the create new account link and follow the instructions.',
+if (isset($wp_opt['idp_details'])) {
+  $ini = $wp_opt['idp_details'];
+} else {
+  $configPath = constant('SAMLAUTH_CONF') . '/config/saml20-idp-remote.ini';
+  $ini = parse_ini_file($configPath, true);
+}
 
-	'SingleSignOnService'  => 'https://openidp.feide.no/simplesaml/saml2/idp/SSOService.php',
-	'SingleLogoutService'  => 'https://openidp.feide.no/simplesaml/saml2/idp/SingleLogoutService.php',
-	'certFingerprint'      => 'c9ed4dfb07caf13fc21e0fec1572047eb8a7a4cb'
-);
+foreach($ini as $key => $array) {
+  $metadata[$key] = array(
+    'name' => array(
+      'en' => $array['name']
+    ),
+    'SingleSignOnService'  => $array['SingleSignOnService'],
+    'certFingerprint'      => $array['certFingerprint']
+  );
 
+  if ( trim($array['SingleLogoutService']) != '' ) {
+    $metadata[$key]['SingleLogoutService'] = $array['SingleLogoutService'];
+  }
+}
