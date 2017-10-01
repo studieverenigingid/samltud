@@ -16,6 +16,24 @@
 			<?php echo constant('SAMLTUD_AUTH_MD_URL'); ?>
 		</a>
 	</p>
+  <p>
+    <strong>Your Entity ID:</strong>
+    <pre class="metadata-box">
+    	<?php echo $metadata['entityID'];?>
+    </pre>
+  </p>
+  <p>
+    <strong>Your Single Logout URL:</strong>
+    <pre class="metadata-box">
+    	<?php echo $metadata['Logout'];?>
+    </pre>
+  </p>
+  <p>
+    <strong>Your SAML Assertion Consumer URL:</strong>
+    <pre class="metadata-box">
+    	<?php echo $metadata['Consumer'];?>
+    </pre>
+  </p>
 
 
   <div class="option-separator"></div>
