@@ -69,7 +69,7 @@ $config = array(
      */
     'auth.adminpassword' => (defined('SAMLTUD_PWD') ? constant('SAMLTUD_PWD') : random_bytes(32)),
     'admin.protectindexpage' => true,
-    'admin.protectmetadata' => true,
+    'admin.protectmetadata' => false,
 
     /**
      * This is a secret salt used by SimpleSAMLphp when it needs to generate a secure hash
