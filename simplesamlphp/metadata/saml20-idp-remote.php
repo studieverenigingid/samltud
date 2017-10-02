@@ -18,7 +18,7 @@ $blog_id = (string)get_current_blog_id();
 if (isset($wp_opt['idp_details'])) {
   $ini = $wp_opt['idp_details'];
 } else {
-  $configPath = constant('SAMLAUTH_CONF') . '/config/saml20-idp-remote.ini';
+  $configPath = constant('SAMLTUD_AUTH_CONF') . '/config/saml20-idp-remote.ini';
   $ini = parse_ini_file($configPath, true);
 }
 
