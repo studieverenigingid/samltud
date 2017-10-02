@@ -247,6 +247,6 @@ if (array_key_exists('output', $_REQUEST) && $_REQUEST['output'] == 'xhtml') {
     $t->data['metaurl'] = $source->getMetadataURL();
     $t->show();
 } else {
-    header('Content-Type: application/samlmetadata+xml');
+    header('Content-Type: application/xml');
     echo($xml);
 }
