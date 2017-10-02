@@ -7,7 +7,7 @@
  */
 
 $ini = null;
-$wp_opt = get_option('saml_authentication_options');
+$wp_opt = get_option('samltud_authentication_options');
 $blog_id = (string)get_current_blog_id();
 
 /*
