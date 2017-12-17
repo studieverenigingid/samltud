@@ -45,12 +45,13 @@ class SAML_Client {
 
       // Get the username from the result to excecute login
       $attrs = $this->saml->getAttributes();
+      $login_page = home_url( '/login' );
       if(array_key_exists($this->settings->get_attribute('username'), $attrs) ) {
         $username = $attrs[$this->settings->get_attribute('username')][0];
         if($this->get_user_by_netid($username)) {
           $this->simulate_signon($username);
         } else {
-          wp_redirect($login_page . "?login=failed");
+          wp_redirect($login_page . "?login=unknown_netid");
         }
       } else {
         die('A username was not provided. Please contact us.');
