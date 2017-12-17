@@ -47,7 +47,7 @@ class SAML_Client {
       $attrs = $this->saml->getAttributes();
       if(array_key_exists($this->settings->get_attribute('username'), $attrs) ) {
         $username = $attrs[$this->settings->get_attribute('username')][0];
-        if(get_user_by('login', $username)) {
+        if($this->get_user_by_netid($username)) {
           $this->simulate_signon($username);
         } else {
           wp_redirect($login_page . "?login=failed");
@@ -86,7 +86,7 @@ class SAML_Client {
    * @return void
    */
   private function simulate_signon($username) {
-    $user = get_user_by('login', $username);
+    $user = $this->get_user_by_netid($username);
     wp_set_auth_cookie($user->ID);
 
     if( array_key_exists('redirect_to', $_GET) ) {
@@ -95,6 +95,16 @@ class SAML_Client {
       wp_redirect(get_home_url());
     }
     exit();
+  }
+
+  private function get_user_by_netid($username) {
+    $args = array(
+      'meta_key' => 'svid_netid',
+      'meta_value' => $username,
+      'number' => 1
+    );
+    $users = get_users($args);
+    return $users[0];
   }
 
 } // End of class SAML_Client
