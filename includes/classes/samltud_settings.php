@@ -304,7 +304,7 @@ class SAML_Settings {
           'public_key'  =>  '',
           'private_key' =>  ''
       ),
-      'nameidpolicy' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
+      'nameidpolicy' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
       'attributes' => array(
         'username' => '',
         'firstname' => '',
