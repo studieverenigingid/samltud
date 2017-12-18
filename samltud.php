@@ -23,8 +23,8 @@ define('SAMLTUD_PLUGIN_NAME', plugin_basename( __FILE__ ) );
 define('SAMLTUD_AUTH_ROOT', plugin_dir_path(__FILE__) );
 define('SAMLTUD_AUTH_URL', plugins_url() . '/' . basename( dirname(__FILE__) ) );
 
-$samltud_slug = defined('SAMLTUD_SLUG') ? constant('SAMLTUD_SLUG') : 'tud_dev_sp_idweb';
-define('SAMLTUD_AUTH_MD_URL', constant('SAMLTUD_AUTH_URL') . '/simplesamlphp/www/module.php/saml/sp/metadata.php/' . $samltud_slug );
+if (!defined('SAMLTUD_SLUG')) define('SAMLTUD_SLUG', 'tud_dev_sp_idweb');
+define('SAMLTUD_AUTH_MD_URL', constant('SAMLTUD_AUTH_URL') . '/simplesamlphp/www/module.php/saml/sp/metadata.php/' . constant('SAMLTUD_SLUG') );
 
 require_once( constant('SAMLTUD_AUTH_ROOT') . 'includes/classes/samltud_settings.php' );
 require_once( constant('SAMLTUD_AUTH_ROOT') . 'includes/classes/samltud_client.php' );

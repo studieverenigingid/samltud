@@ -33,7 +33,7 @@ $config = array(
 
     // An authentication source which can authenticate against both SAML 2.0
     // and Shibboleth 1.3 IdPs.
-    'tud_dev_sp_idweb' => array(
+    constant('SAMLTUD_SLUG') => array(
         'saml:SP',
 
         'NameIDPolicy' => $wp_opt['nameidpolicy'],
@@ -101,14 +101,14 @@ if (isset($wp_opt['certificate']['public_key'])) {
   $removedCertTag = str_replace('CERTIFICATE-----', '', $certificate);
   $removedBeginTag = str_replace('-----BEGIN', '', $removedCertTag);
   $noTags = str_replace('-----END', '', $removedBeginTag);
-  $config['tud_dev_sp_idweb']['certData'] = trim($noTags);
-} elseif (file_exists( constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb/tud_dev_sp_idweb.cer') ) {
-	$config['tud_dev_sp_idweb']['certificate'] = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb/tud_dev_sp_idweb.cer';
+  $config[constant('SAMLTUD_SLUG')]['certData'] = trim($noTags);
+} elseif (file_exists( constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG') . '/' . constant('SAMLTUD_SLUG') . '.cer') ) {
+	$config[constant('SAMLTUD_SLUG')]['certificate'] = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG') . '/' . constant('SAMLTUD_SLUG') . '.cer';
 }
 
 // Set key paths
-$upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb';
-$keyPath = $upload_dir . '/tud_dev_sp_idweb.key';
+$upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG');
+$keyPath = $upload_dir . '/' . constant('SAMLTUD_SLUG') . '.key';
 
 // If key information is found in database,
 // but keyfile doesn't exist, create it
@@ -121,10 +121,10 @@ if ( isset($wp_opt['certificate']['private_key'])
   }
 
   if ( file_put_contents($keyPath, $wp_opt['certificate']['private_key']) ) {
-    $config['tud_dev_sp_idweb']['privatekey'] = $keyPath;
+    $config[constant('SAMLTUD_SLUG')]['privatekey'] = $keyPath;
   }
 } elseif( file_exists($keyPath)) {
-	$config['tud_dev_sp_idweb']['privatekey'] = $keyPath;
+	$config[constant('SAMLTUD_SLUG')]['privatekey'] = $keyPath;
 }
 
 return $config;

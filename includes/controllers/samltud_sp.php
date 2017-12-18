@@ -3,7 +3,7 @@
 // Setup Default Options Array
 
 if (isset($_POST['submit']) && wp_verify_nonce($_POST['_wpnonce'], 'samltudsp') ) {
-  $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb';
+  $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG');
 
   if( !is_dir($upload_dir)) {
     // Create all parent directories to store certs
@@ -21,7 +21,7 @@ if (isset($_POST['submit']) && wp_verify_nonce($_POST['_wpnonce'], 'samltudsp') 
     $this->settings->set_private_key($samltud_cert->pkey);
 
     //write the private key on save for simple saml parsing
-    $key_uploaded = ( file_put_contents($upload_dir . '/tud_dev_sp_idweb.key', $samltud_cert->pkey) ) ? true : false;
+    $key_uploaded = ( file_put_contents($upload_dir . '/' . constant('SAMLTUD_SLUG') . '.key', $samltud_cert->pkey) ) ? true : false;
   }
 
   // Update settings

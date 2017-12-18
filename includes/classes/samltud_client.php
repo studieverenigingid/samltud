@@ -10,7 +10,7 @@ class SAML_Client {
     require_once(constant('SAMLTUD_AUTH_ROOT') . '/simplesamlphp/lib/_autoload.php');
 
     if( $this->settings->get_enabled() ) {
-			$this->saml = new SimpleSAML_Auth_Simple('tud_dev_sp_idweb');
+			$this->saml = new SimpleSAML_Auth_Simple(constant('SAMLTUD_SLUG'));
 
 			add_action('wp_authenticate', array($this, 'authenticate'));
       // add_action('login_form', array($this, 'modify_login_form'));

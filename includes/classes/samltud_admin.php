@@ -199,7 +199,7 @@ class SAMLTUD_admin {
      * Check if public and private keys are set in the database config
      * otherwise check for cert files.
      */
-    $certPath = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb/tud_dev_sp_idweb';
+    $certPath = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG') . '/' . constant('SAMLTUD_SLUG');
     $hasKeysInDb = ($this->settings->get_public_key() && $this->settings->get_private_key());
     $keyFilesExist = (file_exists($certPath. '.cer') && file_exists($certPath. '.key'));
 

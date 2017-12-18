@@ -6,7 +6,7 @@ class SAMLTUD_certificate {
   public $cert;
 
   public function __construct() {
-    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb';
+    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG');
 
     if ( !$this->find_certificate() ) {
       $this->inform('Certificate not found at <code>' . $upload_dir . 'sp.pem</code>; generating certificate.', 'warning');
@@ -117,7 +117,7 @@ class SAMLTUD_certificate {
   private function generate_certificate() {
 
     $config_path = plugin_dir_path(__FILE__) . 'openssl.cnf';
-    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb';
+    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG');
 
     if ( !$this->check_for_openssl_conf($config_path) ) {
       return false;
@@ -193,7 +193,7 @@ class SAMLTUD_certificate {
    * @return (bool) certificate
 	 */
   private function find_certificate() {
-    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/tud_dev_sp_idweb';
+    $upload_dir = constant('SAMLTUD_AUTH_CONF') . '/certs/' . constant('SAMLTUD_SLUG');
     return file_exists($upload_dir.'sp.pem');
   }
 
