@@ -43,7 +43,7 @@ $config = array(
      * Note: The messages are logged with the DEBUG log level, so you also need to set
      * the 'logging.level' option to LOG_DEBUG.
      */
-    'debug' => WP_DEBUG === true,
+    'debug' => constant('WP_DEBUG'),
 
     /*
      * When showerrors is enabled, all error messages and stack traces will be output
@@ -52,7 +52,7 @@ $config = array(
      * When errorreporting is enabled, a form will be presented for the user to report
      * the error to technicalcontact_email.
      */
-    'showerrors' => WP_DEBUG === true,
+    'showerrors' => constant('WP_DEBUG'),
     'errorreporting' => true,
 
     /**
