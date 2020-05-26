@@ -4,7 +4,7 @@ Plugin Name: SAMLTUD (login with NetID)
 Plugin URI: https://github.com/studieverenigingid/samltud
 Description: Use SAML to allow TU Delft NetID login. Based on https://github.com/ktbartholomew/saml-20-single-sign-on.
 Author: Floris Jansen (Study association i.d), ktbartholomew
-Version: 0.2.1
+Version: 0.2.2
 Author URI: https://fmjansen.nl
 */
 
